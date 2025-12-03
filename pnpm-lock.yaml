@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@payrails/display-sdk':
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^1.0.5
+        version: 1.0.5
       next:
         specifier: 16.0.0
         version: 16.0.0(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -397,8 +397,8 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@payrails/display-sdk@1.0.0':
-    resolution: {integrity: sha512-hy7695eKCh37RcJE5H0FS62OBNhiurr4ZNxjGRk8XBdnao87AU2r5mp+kcmGa0NuF5XWIKZP946WgkWGO9SOUg==}
+  '@payrails/display-sdk@1.0.5':
+    resolution: {integrity: sha512-3tu7tKhy3U3Ef1JVjz9SVq3JNzjpsZoN6GO2mtfnEO5IY978LdINc5uQk0UAWwIb/UNb+BTA/8ZwvejgWhl76g==}
 
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
@@ -2242,7 +2242,7 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@payrails/display-sdk@1.0.0': {}
+  '@payrails/display-sdk@1.0.5': {}
 
   '@rtsao/scc@1.1.0': {}
 

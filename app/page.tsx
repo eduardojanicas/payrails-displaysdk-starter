@@ -16,8 +16,7 @@ import { DisplaySDK, DisplaySDKOptions, DisplayElementType } from '@payrails/dis
 const options: DisplaySDKOptions = {
   styles: {
     base: {
-      fontSize: '16px',
-      fontFamily: "ui-sans-serif, system-ui, 'Helvetica Neue', Arial, sans-serif",
+      fontSize: '16px'
     },
   },
   translations: {
@@ -36,9 +35,9 @@ export default function Home() {
   const [sdk, setSdk] = useState<DisplaySDK | null>(null);
 
   async function initialize() {
-  // Require at least one identifier
-  const hasId = instrumentId || recordId || recordAlias || aliases.trim();
-  if (!hasId) return;
+    // Require at least one identifier
+    const hasId = instrumentId || recordId || recordAlias || aliases.trim();
+    if (!hasId) return;
     setLoading(true);
     setError(null);
     try {
@@ -55,7 +54,7 @@ export default function Home() {
         body: JSON.stringify({
           instrumentId: instrumentId || undefined,
           recordId: recordId || undefined,
-            recordAlias: recordAlias || undefined,
+          recordAlias: recordAlias || undefined,
           aliases: aliases.trim() ? aliases : undefined,
         }),
       });
@@ -71,6 +70,14 @@ export default function Home() {
       instance.createElement(DisplayElementType.ExpiryYear).mount('#expiry-year');
       instance.createElement(DisplayElementType.SecurityCode).mount('#security-code');
       instance.createElement(DisplayElementType.CardHolderName).mount('#card-holder-name');
+      instance.createElement(DisplayElementType.CopyToClipboard,
+        {
+          copyToClipboard: {
+            fields: [DisplayElementType.CardNumber],
+            template: `{cardNumber}`
+          }
+        }
+      ).mount('#copy-to-clipboard');
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -140,6 +147,10 @@ export default function Home() {
           <div>
             <h2 className="mb-1 text-xs font-semibold uppercase tracking-wide text-zinc-500">Cardholder Name</h2>
             <div id="card-holder-name" className="rounded border border-zinc-300 p-2 dark:border-zinc-700" />
+          </div>
+          <div>
+            <h2 className="mb-1 text-xs font-semibold uppercase tracking-wide text-zinc-500">Copy to clipboard</h2>
+            <div id="copy-to-clipboard" className="rounded border border-zinc-300 p-2 dark:border-zinc-700" />
           </div>
         </div>
       </main>
